@@ -10,6 +10,7 @@ import { revalidatePath } from "next/cache";
 
 import { InputType, ReturnType } from "./types";
 import { CreateBoard } from "./schema";
+import { error } from "console";
 
 const handler = async (data: InputType): Promise<ReturnType> => {
     const { userId } = await auth();
