@@ -8,6 +8,11 @@ export const CreateBoard = z.object({
     .min(3, {
       message: "Title is too short", // Checks for length < 3
     }),
+    image: z.string({
+    // Handles both missing and incorrect type issues time:5:38:18
+    error: (issue) => 
+      issue.input === undefined ? "Image is required" : "Invalid image format"
+  }).min(1, "Image is required"),
 });
 
 
