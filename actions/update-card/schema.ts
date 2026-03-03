@@ -9,12 +9,14 @@ export const UpdateCard = z.object({
     .min(3, { message: "Description is too short." })
     .optional(), // Moved optional to the end for cleaner chaining
     
-    title: z.string({
-        error: (issue) => 
-            issue.input === undefined ? "Title is required" : "Invalid title format"
-    }).min(3, {
-        message: "Title is too short",
-    }),
+    title: z.optional(
+        z.string({
+            error: (issue) => 
+                issue.input === undefined ? "Title is required" : "Invalid title format"
+        }).min(3, {
+            message: "Title is too short",
+        })
+    ),
     id: z.string(),
 });
 
